@@ -5,7 +5,6 @@ module top (
     output  logic           led_red,
     output  logic           led_yellow,
     output  logic           led_green,
-    output  logic           led_blue,
     //
     output  logic           ulpi_refclk,
     output  logic           ulpi_resetn,
@@ -31,12 +30,12 @@ module top (
 
     logic[26:0] ulpi_count;
     always_ff @(posedge ulpi_clk) begin
+    //always_ff @(posedge clk13) begin
         ulpi_count  <= ulpi_count + 1;
-        led_blue    <= ulpi_count[26];
+        led_green   <= ulpi_count[26];
+        led_yellow  <= ulpi_count[26];
     end
     
-    assign led_yellow = 0;
-    assign led_green = 0;
     assign ulpi_resetn = 1;
     assign ulpi_stp = 0;
 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1.1 (lin64) Build 3557992 Fri Jun  3 09:56:20 MDT 2022
-| Date         : Fri Jul 29 19:14:23 2022
+| Date         : Sat Jul 30 12:09:39 2022
 | Host         : WD-SN850 running 64-bit Ubuntu 20.04.4 LTS
 | Command      : report_timing_summary -file ./results/timing.rpt
 | Design       : top
@@ -47,12 +47,12 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (28)
+1. checking no_clock (29)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (28)
+4. checking unconstrained_internal_endpoints (29)
 5. checking no_input_delay (0)
-6. checking no_output_delay (3)
+6. checking no_output_delay (4)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -60,9 +60,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (28)
+1. checking no_clock (29)
 -------------------------
- There are 28 register/latch pins with no clock driven by root clock pin: ulpi_clk (HIGH)
+ There are 29 register/latch pins with no clock driven by root clock pin: ulpi_clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -75,9 +75,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (28)
+4. checking unconstrained_internal_endpoints (29)
 -------------------------------------------------
- There are 28 pins that are not constrained for maximum delay. (HIGH)
+ There are 29 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -89,9 +89,9 @@ Table of Contents
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (3)
+6. checking no_output_delay (4)
 -------------------------------
- There are 3 ports with no output delay specified. (HIGH)
+ There are 4 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -136,7 +136,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      7.048        0.000                      0                   28        0.157        0.000                      0                   28       -0.333       -0.333                       1                    37  
+      7.393        0.000                      0                   28        0.184        0.000                      0                   28       -0.333       -0.333                       1                    37  
 
 
 Timing constraints are not met.
@@ -164,7 +164,7 @@ Clock                      WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Tota
 -----                      -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 clk100                                                                                                                                                                  -0.333       -0.333                       1                     1  
   clkfbout_clk_wiz_1                                                                                                                                                     7.845        0.000                       0                     3  
-  clkout100_clk_wiz_1        7.048        0.000                      0                   28        0.157        0.000                      0                   28        4.500        0.000                       0                    30  
+  clkout100_clk_wiz_1        7.393        0.000                      0                   28        0.184        0.000                      0                   28        4.500        0.000                       0                    30  
   clkout13_clk_wiz_1                                                                                                                                                    74.768        0.000                       0                     3  
 
 
@@ -244,15 +244,15 @@ Max Period  n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       10.000     
 From Clock:  clkout100_clk_wiz_1
   To Clock:  clkout100_clk_wiz_1
 
-Setup :            0  Failing Endpoints,  Worst Slack        7.048ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.157ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        7.393ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.184ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             7.048ns  (required time - arrival time)
+Slack (MET) :             7.393ns  (required time - arrival time)
   Source:                 led_count_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clkout100_clk_wiz_1  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            led_count_reg[25]/D
@@ -260,12 +260,12 @@ Slack (MET) :             7.048ns  (required time - arrival time)
   Path Group:             clkout100_clk_wiz_1
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clkout100_clk_wiz_1 rise@10.000ns - clkout100_clk_wiz_1 rise@0.000ns)
-  Data Path Delay:        2.654ns  (logic 2.034ns (76.630%)  route 0.620ns (23.370%))
+  Data Path Delay:        2.573ns  (logic 2.034ns (79.056%)  route 0.539ns (20.944%))
   Logic Levels:           7  (CARRY4=7)
-  Clock Path Skew:        -0.286ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.556ns = ( 8.444 - 10.000 ) 
-    Source Clock Delay      (SCD):    -0.791ns
-    Clock Pessimism Removal (CPR):    0.479ns
+  Clock Path Skew:        -0.023ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.391ns = ( 8.609 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.793ns
+    Clock Pessimism Removal (CPR):    0.576ns
   Clock Uncertainty:      0.073ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Discrete Jitter          (DJ):    0.128ns
@@ -282,34 +282,34 @@ Slack (MET) :             7.048ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -7.070    -4.506 r  clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.719    -2.786    clk_wiz_inst/inst/clkout100_clk_wiz
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096    -2.690 r  clk_wiz_inst/inst/clkout1_buf/O
-                         net (fo=28, routed)          1.899    -0.791    clk
-    SLICE_X1Y45          FDRE                                         r  led_count_reg[1]/C
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.096    -2.690 r  clk_wiz_inst/inst/clkout1_buf/O
+                         net (fo=28, routed)          1.897    -0.793    clk
+    SLICE_X0Y40          FDRE                                         r  led_count_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y45          FDRE (Prop_fdre_C_Q)         0.456    -0.335 r  led_count_reg[1]/Q
-                         net (fo=1, routed)           0.620     0.285    led_count_reg_n_0_[1]
-    SLICE_X1Y45          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.674     0.959 r  led_count_reg[0]_i_1/CO[3]
-                         net (fo=1, routed)           0.000     0.959    led_count_reg[0]_i_1_n_0
-    SLICE_X1Y46          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     1.073 r  led_count_reg[4]_i_1/CO[3]
-                         net (fo=1, routed)           0.000     1.073    led_count_reg[4]_i_1_n_0
-    SLICE_X1Y47          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     1.187 r  led_count_reg[8]_i_1/CO[3]
-                         net (fo=1, routed)           0.000     1.187    led_count_reg[8]_i_1_n_0
-    SLICE_X1Y48          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     1.301 r  led_count_reg[12]_i_1/CO[3]
-                         net (fo=1, routed)           0.000     1.301    led_count_reg[12]_i_1_n_0
-    SLICE_X1Y49          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     1.415 r  led_count_reg[16]_i_1/CO[3]
-                         net (fo=1, routed)           0.001     1.416    led_count_reg[16]_i_1_n_0
-    SLICE_X1Y50          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     1.530 r  led_count_reg[20]_i_1/CO[3]
-                         net (fo=1, routed)           0.000     1.530    led_count_reg[20]_i_1_n_0
-    SLICE_X1Y51          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     1.864 r  led_count_reg[24]_i_1/O[1]
-                         net (fo=1, routed)           0.000     1.864    led_count_reg[24]_i_1_n_6
-    SLICE_X1Y51          FDRE                                         r  led_count_reg[25]/D
+    SLICE_X0Y40          FDRE (Prop_fdre_C_Q)         0.456    -0.337 r  led_count_reg[1]/Q
+                         net (fo=1, routed)           0.539     0.202    led_count_reg_n_0_[1]
+    SLICE_X0Y40          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.674     0.876 r  led_count_reg[0]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     0.876    led_count_reg[0]_i_1_n_0
+    SLICE_X0Y41          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     0.990 r  led_count_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     0.990    led_count_reg[4]_i_1_n_0
+    SLICE_X0Y42          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.104 r  led_count_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.104    led_count_reg[8]_i_1_n_0
+    SLICE_X0Y43          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.218 r  led_count_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.218    led_count_reg[12]_i_1_n_0
+    SLICE_X0Y44          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.332 r  led_count_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.332    led_count_reg[16]_i_1_n_0
+    SLICE_X0Y45          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.446 r  led_count_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     1.446    led_count_reg[20]_i_1_n_0
+    SLICE_X0Y46          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     1.780 r  led_count_reg[24]_i_1/O[1]
+                         net (fo=1, routed)           0.000     1.780    led_count_reg[24]_i_1_n_6
+    SLICE_X0Y46          FDRE                                         r  led_count_reg[25]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clkout100_clk_wiz_1 rise edge)
@@ -321,17 +321,17 @@ Slack (MET) :             7.048ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -7.324     5.107 r  clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.639     6.747    clk_wiz_inst/inst/clkout100_clk_wiz
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     6.838 r  clk_wiz_inst/inst/clkout1_buf/O
-                         net (fo=28, routed)          1.606     8.444    clk
-    SLICE_X1Y51          FDRE                                         r  led_count_reg[25]/C
-                         clock pessimism              0.479     8.923    
-                         clock uncertainty           -0.073     8.850    
-    SLICE_X1Y51          FDRE (Setup_fdre_C_D)        0.062     8.912    led_count_reg[25]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.091     6.838 r  clk_wiz_inst/inst/clkout1_buf/O
+                         net (fo=28, routed)          1.771     8.609    clk
+    SLICE_X0Y46          FDRE                                         r  led_count_reg[25]/C
+                         clock pessimism              0.576     9.184    
+                         clock uncertainty           -0.073     9.111    
+    SLICE_X0Y46          FDRE (Setup_fdre_C_D)        0.062     9.173    led_count_reg[25]
   -------------------------------------------------------------------
-                         required time                          8.912    
-                         arrival time                          -1.864    
+                         required time                          9.173    
+                         arrival time                          -1.780    
   -------------------------------------------------------------------
-                         slack                                  7.048    
+                         slack                                  7.393    
 
 
 
@@ -339,20 +339,20 @@ Slack (MET) :             7.048ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.157ns  (arrival time - required time)
-  Source:                 led_count_reg[19]/C
+Slack (MET) :             0.184ns  (arrival time - required time)
+  Source:                 led_count_reg[26]/C
                             (rising edge-triggered cell FDRE clocked by clkout100_clk_wiz_1  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            led_count_reg[20]/D
+  Destination:            led_red_reg/D
                             (rising edge-triggered cell FDRE clocked by clkout100_clk_wiz_1  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clkout100_clk_wiz_1
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clkout100_clk_wiz_1 rise@0.000ns - clkout100_clk_wiz_1 rise@0.000ns)
-  Data Path Delay:        0.464ns  (logic 0.355ns (76.531%)  route 0.109ns (23.469%))
-  Logic Levels:           2  (CARRY4=2)
-  Clock Path Skew:        0.201ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.496ns
-    Source Clock Delay      (SCD):    -0.334ns
-    Clock Pessimism Removal (CPR):    -0.364ns
+  Data Path Delay:        0.271ns  (logic 0.141ns (52.104%)  route 0.130ns (47.896%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.017ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.426ns
+    Source Clock Delay      (SCD):    -0.335ns
+    Clock Pessimism Removal (CPR):    -0.109ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -365,19 +365,13 @@ Slack (MET) :             0.157ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -2.379    -1.530 r  clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.499    -1.031    clk_wiz_inst/inst/clkout100_clk_wiz
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.026    -1.005 r  clk_wiz_inst/inst/clkout1_buf/O
-                         net (fo=28, routed)          0.671    -0.334    clk
-    SLICE_X1Y49          FDRE                                         r  led_count_reg[19]/C
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.026    -1.005 r  clk_wiz_inst/inst/clkout1_buf/O
+                         net (fo=28, routed)          0.670    -0.335    clk
+    SLICE_X0Y46          FDRE                                         r  led_count_reg[26]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y49          FDRE (Prop_fdre_C_Q)         0.141    -0.193 r  led_count_reg[19]/Q
-                         net (fo=1, routed)           0.108    -0.084    led_count_reg_n_0_[19]
-    SLICE_X1Y49          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.160     0.076 r  led_count_reg[16]_i_1/CO[3]
-                         net (fo=1, routed)           0.001     0.076    led_count_reg[16]_i_1_n_0
-    SLICE_X1Y50          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.054     0.130 r  led_count_reg[20]_i_1/O[0]
-                         net (fo=1, routed)           0.000     0.130    led_count_reg[20]_i_1_n_7
-    SLICE_X1Y50          FDRE                                         r  led_count_reg[20]/D
+    SLICE_X0Y46          FDRE (Prop_fdre_C_Q)         0.141    -0.194 r  led_count_reg[26]/Q
+                         net (fo=2, routed)           0.130    -0.064    p_0_in
+    SLICE_X0Y47          FDRE                                         r  led_red_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clkout100_clk_wiz_1 rise edge)
@@ -389,16 +383,16 @@ Slack (MET) :             0.157ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -3.163    -1.947 r  clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           0.544    -1.403    clk_wiz_inst/inst/clkout100_clk_wiz
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.029    -1.374 r  clk_wiz_inst/inst/clkout1_buf/O
-                         net (fo=28, routed)          0.878    -0.496    clk
-    SLICE_X1Y50          FDRE                                         r  led_count_reg[20]/C
-                         clock pessimism              0.364    -0.132    
-    SLICE_X1Y50          FDRE (Hold_fdre_C_D)         0.105    -0.027    led_count_reg[20]
+    BUFGCTRL_X0Y18       BUFG (Prop_bufg_I_O)         0.029    -1.374 r  clk_wiz_inst/inst/clkout1_buf/O
+                         net (fo=28, routed)          0.948    -0.426    clk
+    SLICE_X0Y47          FDRE                                         r  led_red_reg/C
+                         clock pessimism              0.109    -0.318    
+    SLICE_X0Y47          FDRE (Hold_fdre_C_D)         0.070    -0.248    led_red_reg
   -------------------------------------------------------------------
-                         required time                          0.027    
-                         arrival time                           0.130    
+                         required time                          0.248    
+                         arrival time                          -0.064    
   -------------------------------------------------------------------
-                         slack                                  0.157    
+                         slack                                  0.184    
 
 
 
@@ -412,10 +406,10 @@ Period(ns):         10.000
 Sources:            { clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period        n/a     BUFG/I              n/a            2.155         10.000      7.845      BUFGCTRL_X0Y17   clk_wiz_inst/inst/clkout1_buf/I
+Min Period        n/a     BUFG/I              n/a            2.155         10.000      7.845      BUFGCTRL_X0Y18   clk_wiz_inst/inst/clkout1_buf/I
 Max Period        n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       10.000      203.360    MMCME2_ADV_X1Y2  clk_wiz_inst/inst/mmcm_adv_inst/CLKOUT0
-Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X1Y45      led_count_reg[0]/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X1Y45      led_count_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X0Y40      led_count_reg[0]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         5.000       4.500      SLICE_X0Y40      led_count_reg[0]/C
 
 
 
