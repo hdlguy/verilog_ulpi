@@ -15,8 +15,8 @@ module top (
     input   logic           ulpi_nxt
 );
 
-    logic clk, clk13;    
-    clk_wiz clk_wiz_inst (.clk_in1(clkin100), .clkout100(clk), .clkout13(clk13), .locked());
+    logic clk, clk13, locked;    
+    clk_wiz clk_wiz_inst (.clk_in1(clkin100), .clkout100(clk), .clkout13(clk13), .locked(locked));
     
     logic clk13q;
     ODDR #(.DDR_CLK_EDGE("SAME_EDGE"), .INIT(1'b0), .SRTYPE("SYNC")) refclk_ODDR_inst (.Q(clk13q), .C(clk13), .CE(1'b1), .D1(1'b1), .D2(1'b0), .R(1'b0), .S(1'b0));
@@ -30,14 +30,17 @@ module top (
 
     logic[26:0] ulpi_count;
     always_ff @(posedge ulpi_clk) begin
-    //always_ff @(posedge clk13) begin
         ulpi_count  <= ulpi_count + 1;
         led_green   <= ulpi_count[26];
         led_yellow  <= ulpi_count[26];
     end
     
-    assign ulpi_resetn = 1;
-    assign ulpi_stp = 0;
+    assign ulpi_resetn = locked;
+
+    ulpi_if ulpi_if_inst (
+        .uclk(ulpi_clk), .udata(ulpi_data), .ustp(ulpi_stp), .udir(ulpi_dir), .unxt(ulpi_nxt),
+        .dclk(clk), .tx_dv(tx_dv), .tx_rdy(tx_rdy), .tx_data(tx_data), .rx_dv(rx_dv), .rx_rdy(rx_rdy), .rx_data(rx_data)
+    );
 
 endmodule
 

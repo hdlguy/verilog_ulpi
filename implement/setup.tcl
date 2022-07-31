@@ -15,6 +15,7 @@ reset_target all [get_files *.xci]
 upgrade_ip -quiet  [get_ips *]
 generate_target {all} [get_ips *]
 
+read_verilog -sv ../source/ulpi_if.sv
 read_verilog -sv ../source/top.sv
 
 read_xdc ../source/top.xdc  
