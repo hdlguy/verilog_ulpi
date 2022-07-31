@@ -10,12 +10,13 @@ set_property target_language verilog [current_project]
 set_property default_lib work [current_project]
 
 read_ip ../source/clk_wiz/clk_wiz.xci
+read_ip ../source/ulpi_if/ulpi_ila/ulpi_ila.xci
 
 reset_target all [get_files *.xci]
 upgrade_ip -quiet  [get_ips *]
 generate_target {all} [get_ips *]
 
-read_verilog -sv ../source/ulpi_if.sv
+read_verilog -sv ../source/ulpi_if/ulpi_if.sv
 read_verilog -sv ../source/top.sv
 
 read_xdc ../source/top.xdc  
